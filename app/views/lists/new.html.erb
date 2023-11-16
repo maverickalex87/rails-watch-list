@@ -1,0 +1,7 @@
+<h1>New list</h1>
+<%= simple_form_for [@movie, @list] do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "Submit list", class: "btn btn-primary" %>
+<% end %>
+
+<%= button_to "Destroy this list", @list, method: :delete %>

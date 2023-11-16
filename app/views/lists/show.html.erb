@@ -1,0 +1,11 @@
+
+<h2><%= @list.name %></h2>
+ <%= @bookmarks.each do |bookmark| %>
+    <%= render bookmark %>
+    <p>
+      <%= link_to "Show this restaurant", bookmark(:id) %>
+    </p>
+    <%end%>
+
+<%= link_to "Edit this list", edit_list_path(@list) %>
+<%= button_to "Destroy this bookmark", @bookmark, method: :delete %>

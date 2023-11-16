@@ -1,0 +1,9 @@
+<h1>test</h1>
+
+<ul>
+  <% @lists.each do |list| %>
+    <li><%= list.name %></li>
+  <% end %>
+</ul>
+<%= link_to "New list", new_list_path(@list) %>
+<%= button_to "Destroy this bookmark", @bookmark, method: :delete %>
