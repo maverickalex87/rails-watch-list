@@ -1,11 +1,16 @@
 
-<h2><%= @list.name %></h2>
- <%= @bookmarks.each do |bookmark| %>
-    <%= render bookmark %>
-    <p>
-      <%= link_to "Show this restaurant", bookmark(:id) %>
-    </p>
-    <%end%>
+<div class="position-relative">
+  <div class="card-category card-large">
+    <h1>My list<% @list.name %></h1>
+    <hr>
+    <% @list.bookmarks.each do |bookmark| %>
+        <%= bookmark.comment %>
+        <%= link_to "Delete bookmark", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <%end%>
 
-<%= link_to "Edit this list", edit_list_path(@list) %>
-<%= button_to "Destroy this bookmark", @bookmark, method: :delete %>
+    <%= link_to "delete this list", list_path(@list), class: "btn btn-cancel", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this list?" } %>
+    <%= link_to "New list", new_list_path(@list) %>
+    <%= link_to "All list", lists_path(@list) %>
+    <%= link_to "Bookmark new", new_list_bookmark_path(@list) %>
+  </div>
+</div>
